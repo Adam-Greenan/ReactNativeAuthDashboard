@@ -488,6 +488,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ReactNativeAuthDashboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Auth Dashboard";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -516,6 +517,7 @@
 				DEVELOPMENT_TEAM = K3D7Q5P2MP;
 				INFOPLIST_FILE = ReactNativeAuthDashboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Auth Dashboard";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
