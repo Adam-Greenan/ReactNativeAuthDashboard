@@ -3,6 +3,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {navigationRef, routeRef, isMountedRef} from 'services/navigation';
 import {NavigationContainer} from '@react-navigation/native';
 import {useAppLifecycle} from 'hooks/useAppLifecycle';
+import {LoginScreen} from '../screens/Onboarding/LoginScreen';
+import {DashboardScreen} from '../screens/Authenticated/DashboardScreen';
 
 const getActiveRouteName = (state: any): string => {
   const route = state.routes[state.index];
@@ -32,12 +34,6 @@ export const NavigationRoot: React.FunctionComponent<
 
   useAppLifecycle();
 
-  let stack = <Stack.Screen name="Screens" component={OnboardingStack} />;
-
-  // if (app.auth.authenticated) {
-  //   stack = <Stack.Screen name="Screens" component={AuthenticatedStack} />;
-  // }
-
   return (
     <NavigationContainer
       ref={navigationRef}
@@ -46,12 +42,12 @@ export const NavigationRoot: React.FunctionComponent<
         routeRef.current = currentRouteName;
       }}>
       <Stack.Navigator
-        presentation="modal"
         screenOptions={{
           headerShown: false,
-        }}>
-        {stack}
-        <Stack.Screen name={'Modal'} component={ModalStack} />
+        }}
+        initialRouteName="LoginScreen">
+        <Stack.Screen name={'LoginScreen'} component={LoginScreen} />
+        <Stack.Screen name={'DashboardScreen'} component={DashboardScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

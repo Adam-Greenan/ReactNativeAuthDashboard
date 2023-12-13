@@ -31,6 +31,7 @@ module.exports = {
           config: './src/config',
           hooks: './src/hooks',
           images: './src/images',
+          models: './src/models',
           navigation: './src/navigation',
           screens: './src/screens',
           services: './src/services',

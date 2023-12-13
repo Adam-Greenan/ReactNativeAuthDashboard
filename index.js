@@ -7,8 +7,14 @@ import App from './App';
 import {name as appName} from './app.json';
 import StorybookUI from './storybook';
 import {enableScreens} from 'react-native-screens';
+import { configure } from "mobx";
 
-const useStorybook = true;
+const useStorybook = false;
+
+
+configure({
+  enforceActions: "never",
+});
 
 enableScreens();
 
