@@ -12,10 +12,19 @@ export const App = types
   .model({
     user: types.model({
       authenticated: types.boolean,
+      firstName: types.maybe(types.string),
+      lastName: types.maybe(types.string),
     }),
   })
-  .actions((self) => ({}))
-  .actions((self) => ({}));
+  .actions((self) => ({
+    setAuthenticated(authenticated: boolean) {
+      self.user.authenticated = authenticated;
+    },
+    setUser(user: { firstName: string; lastName: string }) {
+      self.user.firstName = user.firstName;
+      self.user.lastName = user.lastName;
+    },
+  }));
 
 export interface IApp extends Instance<typeof App> {}
 export interface IAppState extends SnapshotIn<typeof App> {}

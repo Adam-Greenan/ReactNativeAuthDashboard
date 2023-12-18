@@ -58,6 +58,9 @@ export const LoginScreen: FC<ILoginScreenProps> = observer(() => {
             style={[regular.s, styles.forgotPasswordText]}
             text="Forgot Password?"
           />
+          {loginCommand.error && (
+            <Text style={styles.error}>{loginCommand.error}</Text>
+          )}
         </View>
         <View>
           <Button
@@ -114,5 +117,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignSelf: "center",
     paddingTop: 8,
+  },
+  error: {
+    color: "red",
+    alignSelf: "center",
   },
 });

@@ -41,7 +41,7 @@ export const Button: FC<IButtonProps> = ({
 
   return (
     <View style={style}>
-      <TouchableOpacity onPress={execute} disabled={!canExecute}>
+      <TouchableOpacity onPress={() => execute()} disabled={!canExecute}>
         <View
           style={[
             canExecute

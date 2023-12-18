@@ -6,7 +6,7 @@ import { storiesOf } from "@storybook/react-native";
 
 import { StorybookSafeArea } from "storybook/StorybookSafeArea";
 
-import { LoginScreen } from "./LoginScreen.1";
+import { LoginScreen } from "./LoginScreen";
 
 const Stack = createStackNavigator();
 
