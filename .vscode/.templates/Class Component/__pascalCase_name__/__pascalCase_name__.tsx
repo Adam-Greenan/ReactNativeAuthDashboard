@@ -1,11 +1,11 @@
-import * as React from "react";
+import React, { Component } from "react"
 
 interface I{{ pascalCase name }}State {}
 export interface I{{ pascalCase name }}Props {
   testID?: string;
 }
 
-export class {{ pascalCase name }} extends React.Component<I{{ pascalCase name }}Props, I{{ pascalCase name }}State> {
+export class {{ pascalCase name }} extends Component<I{{ pascalCase name }}Props, I{{ pascalCase name }}State> {
   constructor(props: I{{ pascalCase name }}Props) {
     super(props);
 

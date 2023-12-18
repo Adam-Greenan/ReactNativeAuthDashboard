@@ -1,16 +1,16 @@
 /**
  * @format
  */
+import "react-native-gesture-handler";
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
-import StorybookUI from './storybook';
-import {enableScreens} from 'react-native-screens';
 import { configure } from "mobx";
+import { AppRegistry } from "react-native";
+import Config from "react-native-config";
+import { enableScreens } from "react-native-screens";
 
-const useStorybook = false;
-
+import App from "./App";
+import { name as appName } from "./app.json";
+import StorybookUI from "./storybook";
 
 configure({
   enforceActions: "never",
@@ -18,6 +18,8 @@ configure({
 
 enableScreens();
 
-const Main = useStorybook ? StorybookUI : App;
+console.log("here");
+
+const Main = Config.USE_STORYBOOK === "true" ? StorybookUI : App;
 
 AppRegistry.registerComponent(appName, () => Main);

@@ -1,36 +1,28 @@
-import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { useState } from "react";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import React, { FC } from "react";
+
 import { observer } from "mobx-react";
+import { Text, StyleSheet } from "react-native";
+
 import { Background } from "components/containers/Background";
+import { StatusBar } from "components/display/StatusBar";
 
 export interface IDashboardScreenProps {}
 
-export const DashboardScreen: React.FunctionComponent<IDashboardScreenProps> = observer(
-  props => {
-    const insets = useSafeAreaInsets();
-
-    return (
-      <>
-        <Background
-          style={[
-            {
-              paddingTop: insets.top,
-              paddingBottom: insets.bottom
-            }
-          ]}>
-          <View style={styles.container}>
-            <Text>Dashboard Screen</Text>
-          </View>
-        </Background>
-      </>
-    );
-  }
-);
+export const DashboardScreen: FC<IDashboardScreenProps> = observer(() => {
+  return (
+    <>
+      <StatusBar />
+      <Background style={styles.backgroundContainer}>
+        <Text>DashboardScreen</Text>
+      </Background>
+    </>
+  );
+});
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
+  backgroundContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });

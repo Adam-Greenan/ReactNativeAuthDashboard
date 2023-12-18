@@ -1,18 +1,14 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React from "react";
 
-import React from 'react';
-import type {Node} from 'react';
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {NavigationRoot} from './src/navigation/NavigationRoot';
+import { AsyncGate } from "components/behaviors/AsyncGate";
+import { stores } from "models/stores";
+import { NavigationRoot } from "navigation/NavigationRoot";
+import { Text, View } from "react-native";
 
-const App: () => Node = () => {
+const App = () => {
+  console.log("app");
   return (
     <SafeAreaProvider>
       {/* <AsyncGate> */}

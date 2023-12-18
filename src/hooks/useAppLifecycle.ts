@@ -1,9 +1,11 @@
-import { AppState, AppStateStatus } from "react-native";
 import { useState, useEffect } from "react";
-import { useCommand } from "hooks/useCommand";
+
+import { AppState, AppStateStatus } from "react-native";
+
 import { LaunchCommand } from "commands/lifecycle/LaunchCommand";
 import { ResumeCommand } from "commands/lifecycle/ResumeCommand";
 import { SuspendCommand } from "commands/lifecycle/SuspendCommand";
+import { useCommand } from "hooks/useCommand";
 
 export const useAppLifecycle = (hasLaunched: boolean = false) => {
   const [launched, setLaunched] = useState(hasLaunched);
@@ -11,6 +13,8 @@ export const useAppLifecycle = (hasLaunched: boolean = false) => {
   const launchCommand = useCommand(() => new LaunchCommand());
   const resumeCommand = useCommand(() => new ResumeCommand());
   const suspendCommand = useCommand(() => new SuspendCommand());
+
+  console.log("appState");
 
   useEffect(() => {
     async function onAppStateChange(newState: AppStateStatus) {
@@ -25,8 +29,8 @@ export const useAppLifecycle = (hasLaunched: boolean = false) => {
           await cmd.execute();
         }
       }
-
       setAppState(newState);
+      Promise.resolve(true);
     }
 
     async function launch() {
@@ -37,6 +41,7 @@ export const useAppLifecycle = (hasLaunched: boolean = false) => {
           await cmd.execute();
         }
       }
+      Promise.resolve(true);
     }
 
     launch();

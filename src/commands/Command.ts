@@ -1,5 +1,7 @@
-import { ICommand } from "./ICommand";
 import { observable, computed, action, makeObservable } from "mobx";
+
+import { ICommand } from "./ICommand";
+
 export abstract class Command<Param = any> implements ICommand<Param> {
   private isExecuting: boolean = false;
 

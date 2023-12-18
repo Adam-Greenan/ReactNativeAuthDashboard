@@ -1,30 +1,28 @@
-import * as React from 'react';
-import {View, ViewStyle, StyleSheet, ImageBackground} from 'react-native';
-import config from '../../../config';
-import {ViewStyleProp} from 'components/StyleProps';
-import {useStyleProp} from 'hooks/useStyleProp';
-import LinearGradient from 'react-native-linear-gradient';
+import React, { FC, ReactNode } from "react";
+
+import { View, StyleSheet } from "react-native";
+
+import { ViewStyleProp } from "components/StyleProps";
+import config from "config";
+import { useStyleProp } from "hooks/useStyleProp";
 
 export interface IBackgroundProps {
-  children: React.ReactNode;
+  children: ReactNode;
   style?: ViewStyleProp;
   testID?: string;
 }
 
-export const Background: React.FunctionComponent<IBackgroundProps> = props => {
-  const style = useStyleProp(props.style);
+export const Background: FC<IBackgroundProps> = ({
+  style,
+  testID,
+  children,
+}) => {
+  const styleHook = useStyleProp(style);
 
   return (
-    <LinearGradient
-      colors={config.gradients.background.colors}
-      locations={config.gradients.background.locations}
-      start={{ x: 0.4, y: 0.8}}
-      end={{ x: 1, y: 0}}
-      style={{flex: 1}}>
-      <View testID={props.testID} style={[styles.container, ...style]}>
-        {props.children}
-      </View>
-    </LinearGradient>
+    <View testID={testID} style={[styles.container, ...styleHook]}>
+      {children}
+    </View>
   );
 };
 

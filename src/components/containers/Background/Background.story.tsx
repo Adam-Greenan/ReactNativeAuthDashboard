@@ -1,10 +1,12 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
+
 import { storiesOf } from "@storybook/react-native";
+import { SafeAreaView } from "react-native";
+
 import { Background } from "./Background";
 
 storiesOf("Components/Background", module).add("Background", () => (
   <SafeAreaView>
-    <Background />
+    <Background children={undefined} />
   </SafeAreaView>
 ));

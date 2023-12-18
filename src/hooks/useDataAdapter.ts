@@ -1,7 +1,9 @@
-import { useLocalObservable } from "mobx-react";
-import { observable } from "mobx";
-import { IDataAdapter } from "adapters/IDataAdapter";
 import { useEffect } from "react";
+
+import { observable } from "mobx";
+import { useLocalObservable } from "mobx-react";
+
+import { IDataAdapter } from "adapters/IDataAdapter";
 
 export const useDataAdapter = <TAdapter extends IDataAdapter>(
   adapter: () => TAdapter,

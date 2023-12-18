@@ -1,5 +1,7 @@
 import React from "react";
-import { render, fireEvent, RenderAPI } from "@testing-library/react-native";
+
+import { render, RenderAPI } from "@testing-library/react-native";
+
 import { DashboardScreen, IDashboardScreenProps } from "./DashboardScreen";
 
 describe("Given a DashboardScreen", () => {
@@ -12,8 +14,8 @@ describe("Given a DashboardScreen", () => {
   });
 
   const make = (props: IDashboardScreenProps): React.ReactElement => {
-    return <DashboardScreen {...props} />
-  }
+    return <DashboardScreen {...props} />;
+  };
 
   let tree: RenderAPI;
 

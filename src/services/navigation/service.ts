@@ -1,19 +1,19 @@
+import { MutableRefObject, createRef } from "react";
+
 import {
-  NavigationContainerRef,
   NavigationAction,
   CommonActions,
   StackActions,
+  createNavigationContainerRef,
 } from "@react-navigation/native";
-import React from "react";
 
-export const navigationRef: React.MutableRefObject<NavigationContainerRef> =
-  React.createRef<NavigationContainerRef>() as React.MutableRefObject<NavigationContainerRef>;
+export const navigationRef = createNavigationContainerRef();
 
-export const routeRef: React.MutableRefObject<string> =
-  React.createRef<string>() as React.MutableRefObject<string>;
+export const routeRef: MutableRefObject<string> =
+  createRef<string>() as MutableRefObject<string>;
 
-export const isMountedRef: React.MutableRefObject<boolean> =
-  React.createRef<boolean>() as React.MutableRefObject<boolean>;
+export const isMountedRef: MutableRefObject<boolean> =
+  createRef<boolean>() as MutableRefObject<boolean>;
 
 export const push = (item: StackItem) => {
   navigationRef.current?.dispatch(StackActions.push(item.name, item.params));
@@ -34,7 +34,7 @@ export const popToTop = () => {
 };
 
 export const navigate = (name: string, params?: any) => {
-  navigationRef.current?.navigate(name, params);
+  navigationRef.navigate(name, params);
 };
 
 export const navigateNested = (
@@ -45,11 +45,15 @@ export const navigateNested = (
 };
 
 export const currentRoute = () => {
-  return navigationRef.current.getCurrentRoute()?.name;
+  return navigationRef.getCurrentRoute()?.name;
 };
 
 export const replace = (name: string, params?: any) => {
   navigationRef.current?.dispatch(StackActions.replace(name, params));
+};
+
+export const goBack = () => {
+  navigationRef.current?.goBack();
 };
 
 export const dispatch = (action: NavigationAction) => {

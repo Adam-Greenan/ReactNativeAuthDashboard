@@ -1,5 +1,7 @@
 import React, { ReactNode } from "react";
+
 import { render } from "@testing-library/react-native";
+
 import { AsyncGate, IAsyncGateProps } from "./AsyncGate";
 
 describe("Given a AsyncGate", () => {
@@ -11,8 +13,14 @@ describe("Given a AsyncGate", () => {
   };
 
   describe("then rendering", () => {
-    // const tree = render(make({}));
+    const tree = render(
+      make({
+        action: () => Promise.resolve(),
+      }),
+    );
 
-    xit("should match snapshot", () => {});
+    it("should match snapshot", () => {
+      expect(tree).toMatchSnapshot();
+    });
   });
 });

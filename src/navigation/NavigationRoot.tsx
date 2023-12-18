@@ -1,10 +1,12 @@
-import * as React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {navigationRef, routeRef, isMountedRef} from 'services/navigation';
-import {NavigationContainer} from '@react-navigation/native';
-import {useAppLifecycle} from 'hooks/useAppLifecycle';
-import {LoginScreen} from '../screens/Onboarding/LoginScreen';
-import {DashboardScreen} from '../screens/Authenticated/DashboardScreen';
+import React, { FC, useEffect } from "react";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { observer } from "mobx-react";
+
+import { DashboardScreen } from "screens/Authenticated/DashboardScreen";
+import { LoginScreen } from "screens/LoginScreen";
+import { navigationRef, routeRef, isMountedRef } from "services/navigation";
 
 const getActiveRouteName = (state: any): string => {
   const route = state.routes[state.index];
@@ -16,23 +18,22 @@ const getActiveRouteName = (state: any): string => {
   return route.name;
 };
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export interface INavigationRootProps {
   testID?: string;
 }
 
-export const NavigationRoot: React.FunctionComponent<
-  INavigationRootProps
-> = () => {
-  React.useEffect(() => {
+export const NavigationRoot: FC<INavigationRootProps> = observer(() => {
+  useEffect(() => {
     isMountedRef.current = true;
     return () => {
       isMountedRef.current = false;
     };
   }, []);
 
-  useAppLifecycle();
+  // console.log("LoginScreen");
+  // useAppLifecycle();
 
   return (
     <NavigationContainer
@@ -44,11 +45,10 @@ export const NavigationRoot: React.FunctionComponent<
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
-        }}
-        initialRouteName="LoginScreen">
-        <Stack.Screen name={'LoginScreen'} component={LoginScreen} />
-        <Stack.Screen name={'DashboardScreen'} component={DashboardScreen} />
+        }}>
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
+});

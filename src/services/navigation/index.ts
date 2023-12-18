@@ -12,6 +12,7 @@ import {
   currentRoute,
   routeRef as rRef,
   popToTop,
+  goBack,
   canGoBack,
 } from "./service";
 
@@ -30,4 +31,5 @@ export const navigation = {
   replace: replace,
   currentRoute: currentRoute,
   canGoBack: canGoBack,
+  goBack: goBack,
 };

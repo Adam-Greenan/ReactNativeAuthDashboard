@@ -1,17 +1,20 @@
 // if you use expo remove this line
-import { AppRegistry } from "react-native";
+import React from "react";
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { withKnobs } from "@storybook/addon-knobs";
 import {
   getStorybookUI,
   configure,
   addDecorator,
 } from "@storybook/react-native";
-import { withKnobs } from "@storybook/addon-knobs";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { loadStories } from "./storyLoader";
+import { AppRegistry } from "react-native";
 import "./rn-addons";
-import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+
+import { name as appName } from "../app.json";
+
+import { loadStories } from "./storyLoader";
 
 // enables knobs for all stories
 addDecorator(withKnobs);
@@ -38,6 +41,6 @@ const StorybookUIRoot = () => {
 
 // If you are using React Native vanilla and after installation you don't see your app name here, write it manually.
 // If you use Expo you should remove this line.
-AppRegistry.registerComponent("HARMySmartE", () => StorybookUIRoot);
+AppRegistry.registerComponent(appName, () => StorybookUIRoot);
 
 export default StorybookUIRoot;

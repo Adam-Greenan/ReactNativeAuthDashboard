@@ -16,7 +16,7 @@ describe("Given a LaunchCommand", () => {
     });
 
     it("should be able to exectue", () => {
-      expect(command.canExecute(params)).toBe(true);
+      expect(command.canExecute()).toBe(true);
     });
 
     describe("when executed", () => {

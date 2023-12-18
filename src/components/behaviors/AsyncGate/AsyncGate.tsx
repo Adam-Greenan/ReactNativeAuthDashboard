@@ -1,18 +1,20 @@
-import * as React from "react";
-import { useEffect } from "react";
+import { FC, useState, useEffect } from "react";
 
 export interface IAsyncGateProps {
   children?: any;
-  action: () => void;
+  action?: () => void;
   onError?: () => void;
 }
-export const AsyncGate: React.FunctionComponent<IAsyncGateProps> = (props) => {
-  const [resolved, setResolved] = React.useState(false);
+export const AsyncGate: FC<IAsyncGateProps> = (props) => {
+  const [resolved, setResolved] = useState(false);
 
   useEffect(() => {
     const resolve = async () => {
       try {
-        await props.action();
+        console.log("error");
+        if (props.action) {
+          await props.action();
+        }
       } catch (err) {
         if (props.onError) {
           props.onError();

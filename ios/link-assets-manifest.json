@@ -1,0 +1,29 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/RothornDC-Bold.otf",
+      "sha1": "edd378b949a439336233aeceac743794d08aa5c2"
+    },
+    {
+      "path": "src/assets/fonts/RothornDC-BoldItalic.otf",
+      "sha1": "275ba0794d81000cb99375171c42fa64a61806fc"
+    },
+    {
+      "path": "src/assets/fonts/RothornDC-ExtraBold.otf",
+      "sha1": "385d1ccd6caac6e0f8287278cc90a63998b682b3"
+    },
+    {
+      "path": "src/assets/fonts/RothornDC-Italic.otf",
+      "sha1": "31509bc75460d737ff8c24f6ea8e2645266a5868"
+    },
+    {
+      "path": "src/assets/fonts/RothornDC-Light.otf",
+      "sha1": "05d148f52ff9f1db6622e92f01584d9da2f0c1d9"
+    },
+    {
+      "path": "src/assets/fonts/RothornDC-Regular.otf",
+      "sha1": "ec51a1fbf48c5bec504206384d71ab62478f964b"
+    }
+  ]
+}

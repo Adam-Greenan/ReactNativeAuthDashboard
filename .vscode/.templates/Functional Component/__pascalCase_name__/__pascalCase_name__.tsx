@@ -1,12 +1,12 @@
-import * as React from "react";
+import React, { FC } from "react";
 import { View, Text } from "react-native";
 
 export interface I{{ pascalCase name }}Props {
   testID?: string;
 }
-export const {{ pascalCase name }}: React.FunctionComponent<I{{ pascalCase name }}Props> = (props) => {
+export const {{ pascalCase name }}: FC<I{{ pascalCase name }}Props> = ({ testID }) => {
   return (
-    <View testID={props.testID}>
+    <View testID={testID}>
       <Text>{{ pascalCase name }}</Text>
     </View>
   );

@@ -1,43 +1,19 @@
-import * as React from 'react';
-import {View, ViewStyle, StyleSheet} from 'react-native';
-import { Platform } from "react-native";
-import DeviceInfo from "react-native-device-info";
+import React, { FC } from "react";
 
-export function isIPhone(): boolean {
-  return Platform.OS === "ios";
-}
+import { View, ViewStyle, StyleSheet } from "react-native";
 
-export function isIPhoneWithNotch(): boolean {
-  return Platform.OS === "ios" && DeviceInfo.hasNotch();
-}
-
-export interface IDeviceValues<T> {
-  iPhoneWithNotch: T;
-  iPhone: T;
-  android: T;
-}
-
-export function switchDeviceValues<T>(values: IDeviceValues<T>): T {
-  return isIPhoneWithNotch()
-    ? values.iPhoneWithNotch
-    : isIPhone()
-    ? values.iPhone
-    : values.android;
-}
-export const IOS_STATUSBAR_SIZE = 20;
-export const IOSX_STATUSBAR_SIZE = 44;
-export const IOS_INSETS_TOP = 64;
-export const IOSX_INSETS_TOP = 48;
-export const IOSX_INSETS_BOTTOM = 34;
-export const ANDROID_STATUSBAR_HEIGHT = 24;
-export const ANDROID_STATUSBAR_SIZE = 0;
+import {
+  switchDeviceValues,
+  IOSX_STATUSBAR_SIZE,
+  ANDROID_STATUSBAR_SIZE,
+  IOS_STATUSBAR_SIZE,
+  IOSX_INSETS_TOP,
+} from "../../src/utils/metrics";
 
 export interface IStorybookSafeAreaProps {
   style?: ViewStyle;
 }
-export const StorybookSafeArea: React.FunctionComponent<
-  IStorybookSafeAreaProps
-> = props => {
+export const StorybookSafeArea: FC<IStorybookSafeAreaProps> = (props) => {
   const style = Object.assign({}, props.style);
 
   return <View style={[styles.container, style]}>{props.children}</View>;

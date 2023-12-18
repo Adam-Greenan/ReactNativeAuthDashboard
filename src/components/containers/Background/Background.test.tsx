@@ -1,5 +1,7 @@
 import React from "react";
+
 import { render } from "@testing-library/react-native";
+
 import { Background, IBackgroundProps } from "./Background";
 
 describe("Given a Background", () => {
@@ -8,7 +10,11 @@ describe("Given a Background", () => {
   };
 
   describe("then rendering", () => {
-    const tree = render(make({})).toJSON();
+    const tree = render(
+      make({
+        children: undefined,
+      }),
+    ).toJSON();
 
     it("should match snapshot", () => {
       expect(tree).toMatchSnapshot();
